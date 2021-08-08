@@ -25,13 +25,13 @@ class MyApp extends StatelessWidget {
           textTheme: ThemeData.light().textTheme.copyWith(
                 headline5: TextStyle(
                   color: Colors.green[200],
-                  fontSize: 24.0,
+                  fontSize: 22.0,
                   fontFamily: 'Tajawal',
                   fontWeight: FontWeight.bold,
                 ),
                 headline6: TextStyle(
                   color: Colors.white,
-                  fontSize: 28.0,
+                  fontSize: 24.0,
                   fontFamily: 'Tajawal',
                   fontWeight: FontWeight.bold,
                 ),

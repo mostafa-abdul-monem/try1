@@ -1,7 +1,10 @@
-class Category {
-  final String id;
-  final String title;
-  final String url;
+import 'package:flutter/material.dart';
 
-  const Category({required this.id, required this.title, required this.url});
+class Category {
+  final String? id;
+  final String? title;
+  final String? imageUrl;
+
+  const Category(
+      {@required this.id, @required this.title, @required this.imageUrl});
 }
