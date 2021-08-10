@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sanabel/screens/catgories_gm3yat.dart';
 import 'screens/categories_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'screens/catgories_gm3yat.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,18 +27,22 @@ class MyApp extends StatelessWidget {
           textTheme: ThemeData.light().textTheme.copyWith(
                 headline5: TextStyle(
                   color: Colors.green[200],
-                  fontSize: 22.0,
+                  fontSize: 20.0,
                   fontFamily: 'Tajawal',
                   fontWeight: FontWeight.bold,
                 ),
                 headline6: TextStyle(
                   color: Colors.white,
-                  fontSize: 24.0,
+                  fontSize: 22.0,
                   fontFamily: 'Tajawal',
                   fontWeight: FontWeight.bold,
                 ),
               )),
-      home: CategoriesScreen(),
+      initialRoute: 'home',
+      routes: {
+        'home': (ctx) => CategoriesScreen(),
+        CategoryGm3yat.screenRoute: (ctx) => CategoryGm3yat(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }
