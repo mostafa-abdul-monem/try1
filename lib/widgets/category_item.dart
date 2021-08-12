@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sanabel/screens/catgories_gm3yat.dart';
 
 class CategoryItem extends StatelessWidget {
   final String id;
@@ -8,7 +9,7 @@ class CategoryItem extends StatelessWidget {
   CategoryItem(this.id, this.title, this.imageUrl);
 
   void selectCategory(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed('categoryRoute', arguments: {
+    Navigator.of(ctx).pushNamed(CategoryGm3yat.screenRoute, arguments: {
       'id': id,
       'title': title,
     });
