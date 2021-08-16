@@ -24,6 +24,7 @@ class CategoryGm3yat extends StatelessWidget {
         body: ListView.builder(
           itemBuilder: (context, index) {
             return SubWidgetItem(
+              id: filter[index].id,
               title: filter[index].title,
               imageUrl: filter[index].imageUrl,
               activities: filter[index].imageUrl,

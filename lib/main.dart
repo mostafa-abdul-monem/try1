@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sanabel/screens/catgories_gm3yat.dart';
+import 'package:sanabel/screens/detail_screen.dart';
 import 'screens/categories_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'screens/catgories_gm3yat.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'home': (ctx) => CategoriesScreen(),
         CategoryGm3yat.screenRoute: (ctx) => CategoryGm3yat(),
+        DetailScreen.screenRoute: (ctx) => DetailScreen(),
       },
       debugShowCheckedModeBanner: false,
     );

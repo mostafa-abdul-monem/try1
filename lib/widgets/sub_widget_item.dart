@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:sanabel/models/gm3yat_item.dart';
+import 'package:sanabel/screens/detail_screen.dart';
 
 class SubWidgetItem extends StatelessWidget {
+  final String? id;
   final String? title;
   final String? imageUrl;
   final String? activities;
   final String? season;
 
   const SubWidgetItem({
+    @required this.id,
     @required this.title,
     @required this.imageUrl,
     @required this.activities,
@@ -15,25 +18,46 @@ class SubWidgetItem extends StatelessWidget {
   });
 
   String? get seasonText {
-    if (season == Season.AllSeasons) {
-      return 'كل الأنشطة';
+    if (season == Season.AllSeasons.toString()) {
+      return 'كل الزكوات';
     }
-    if (season == Season.EidAdha) {
-      return 'ذكاة الأضحى';
+    if (season == Season.EidAdha.toString()) {
+      return 'زكاة الأضحى';
     }
-    if (season == Season.EidFtr) {
-      return 'ذكاة الفطر';
+    if (season == Season.EidFtr.toString()) {
+      return 'زكاة الفطر';
     }
-    if (season == Season.Ramadan) {
+    if (season == Season.Ramadan.toString()) {
       return 'رمضان';
     }
   }
 
-  void selectedWidget() {}
+  String? get gm3yaTypeText {
+    if (season == Gm3yatType.All.toString()) {
+      return 'الأنشطة';
+    }
+    if (season == Gm3yatType.Aytam.toString()) {
+      return 'أيتام';
+    }
+    if (season == Gm3yatType.Hospitals.toString()) {
+      return 'علاج';
+    }
+    if (season == Gm3yatType.Learn.toString()) {
+      return 'تعليم';
+    }
+    if (season == Gm3yatType.Zakah.toString()) {
+      return 'زكاة';
+    }
+  }
+
+  void selectedWidget(BuildContext context) {
+    Navigator.of(context).pushNamed(DetailScreen.screenRoute, arguments: id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: selectedWidget,
+      onTap: () => selectedWidget(context),
       child: Card(
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
@@ -100,25 +124,13 @@ class SubWidgetItem extends StatelessWidget {
                   Row(
                     children: [
                       Icon(
-                        Icons.people,
+                        Icons.help,
                         color: Theme.of(context).accentColor,
                       ),
                       SizedBox(
                         width: 6,
                       ),
-                      Text(seasonText.toString()),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.people,
-                        color: Theme.of(context).accentColor,
-                      ),
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Text(seasonText.toString()),
+                      Text(gm3yaTypeText.toString()),
                     ],
                   ),
                 ],
