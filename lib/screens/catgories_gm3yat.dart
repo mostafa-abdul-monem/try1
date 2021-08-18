@@ -20,6 +20,7 @@ class CategoryGm3yat extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('$catgoryTitle'),
+          centerTitle: true,
         ),
         body: ListView.builder(
           itemBuilder: (context, index) {
