@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sanabel/screens/about_us.dart';
+import 'package:sanabel/screens/app_drawer.dart';
 import 'package:sanabel/screens/categories_screen.dart';
 import 'package:sanabel/screens/favorite_screen.dart';
 
@@ -34,6 +35,7 @@ class _TabScreenState extends State<TabScreen> {
         ),
         centerTitle: true,
       ),
+      drawer: AppDrawer(),
       body: _screens[_selectedScreenIndex]['Screen'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectScreen,
@@ -45,7 +47,7 @@ class _TabScreenState extends State<TabScreen> {
           BottomNavigationBarItem(
               icon: Icon(Icons.dashboard_outlined), label: 'التصنيفات'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.star_border_outlined), label: 'المفضل'),
+              icon: Icon(Icons.star_border_outlined), label: 'المفضلة'),
           BottomNavigationBarItem(icon: Icon(Icons.info), label: 'من نحن'),
         ],
       ),
