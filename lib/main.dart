@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
                 headline6: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 22.0,
                   fontFamily: 'Tajawal',
                   fontWeight: FontWeight.bold,

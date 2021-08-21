@@ -8,6 +8,7 @@ class SubWidgetItem extends StatelessWidget {
   final String? imageUrl;
   final String? activities;
   final String? season;
+  final Function? removeItem;
 
   const SubWidgetItem({
     @required this.id,
@@ -15,6 +16,7 @@ class SubWidgetItem extends StatelessWidget {
     @required this.imageUrl,
     @required this.activities,
     @required this.season,
+    @required this.removeItem,
   });
 
   String? get seasonText {
@@ -51,7 +53,13 @@ class SubWidgetItem extends StatelessWidget {
   }
 
   void selectedWidget(BuildContext context) {
-    Navigator.of(context).pushNamed(DetailScreen.screenRoute, arguments: id);
+    Navigator.of(context)
+        .pushNamed(DetailScreen.screenRoute, arguments: id)
+        .then((result) {
+      if (result != null) {
+        removeItem!(result);
+      }
+    });
   }
 
   @override
