@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:sanabel/widgets/app_data.dart';
 
 class DetailScreen extends StatelessWidget {
+  final Function manageFavorite;
+  final Function isFavorite;
+
+  DetailScreen(this.manageFavorite, this.isFavorite);
+
   sectionTitle(BuildContext context, String titleText) {
     return Container(
       margin: EdgeInsets.all(10.0),
@@ -88,10 +93,8 @@ class DetailScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.delete),
-        onPressed: () {
-          Navigator.of(context).pop(id);
-        },
+        child: Icon(isFavorite(id) ? Icons.favorite : Icons.favorite_border),
+        onPressed: () => manageFavorite(id),
       ),
     );
   }

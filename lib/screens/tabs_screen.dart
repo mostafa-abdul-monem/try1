@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:sanabel/models/gm3yat_item.dart';
 import 'package:sanabel/screens/about_us.dart';
-import 'package:sanabel/screens/app_drawer.dart';
 import 'package:sanabel/screens/categories_screen.dart';
 import 'package:sanabel/screens/favorite_screen.dart';
 
 class TabScreen extends StatefulWidget {
+  final List<Gm3yatItem> favoriteGm3ya;
+  TabScreen(this.favoriteGm3ya);
   @override
   _TabScreenState createState() => _TabScreenState();
 }
@@ -18,12 +20,16 @@ class _TabScreenState extends State<TabScreen> {
 
   //private method will only used in this class (_)
   int _selectedScreenIndex = 0;
-  final List<Map> _screens = [
-    {'Screen': CategoriesScreen(), 'Title': 'التصنيفات'},
-    {'Screen': FavoriteScreen(), 'Title': 'المفضلة'},
-    {'Screen': AboutUs(), 'Title': 'من نحن'}
-  ];
-  //using Object in Map when we not sure about the type of data will become
+  late List<Map> _screens;
+  @override
+  void initState() {
+    _screens = [
+      {'Screen': CategoriesScreen(), 'Title': 'التصنيفات'},
+      {'Screen': FavoriteScreen(widget.favoriteGm3ya), 'Title': 'المفضلة'},
+      {'Screen': AboutUs(), 'Title': 'من نحن'}
+    ];
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +41,6 @@ class _TabScreenState extends State<TabScreen> {
         ),
         centerTitle: true,
       ),
-      drawer: AppDrawer(),
       body: _screens[_selectedScreenIndex]['Screen'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectScreen,
